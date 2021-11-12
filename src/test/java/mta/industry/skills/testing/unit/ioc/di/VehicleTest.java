@@ -28,13 +28,14 @@ public class VehicleTest {
         mockWheels.add(wheelMock);
 
         // create concrete object with mocks
-        Vehicle car = new Car(engineMock, mockWheels);
+        double weightFactor = 1.5;
+        Vehicle car = new Car(engineMock, mockWheels, weightFactor);
 
         // test object behavior (based on the mocks)
         Assertions.assertEquals(mockWheels.size(), car.getWheelsCount());
 
         double maximumAllowedWeight = car.getMaximumAllowedWeight();
-        double expectedValue = mockedStabilityFactor * 1.5;
+        double expectedValue = mockedStabilityFactor * weightFactor;
         Assertions.assertEquals(expectedValue ,maximumAllowedWeight);
     }
 

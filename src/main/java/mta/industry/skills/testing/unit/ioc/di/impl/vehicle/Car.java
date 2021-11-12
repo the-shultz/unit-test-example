@@ -10,10 +10,11 @@ public class Car implements Vehicle {
 
     private Engine engine;
     private List<Wheel> wheels;
-
-    public Car(Engine engine, List<Wheel> wheels) {
+    private final double weightFactor;
+    public Car(Engine engine, List<Wheel> wheels, double weightFactor) {
         this.engine = engine;
         this.wheels = wheels;
+        this.weightFactor = weightFactor;
     }
 
     public Engine getEngine() {
@@ -37,7 +38,7 @@ public class Car implements Vehicle {
     @Override
     public double getMaximumAllowedWeight() {
         int stabilityFactor = this.wheels.get(0).getStabilityFactor();
-        return stabilityFactor * 1.5;
+        return stabilityFactor * weightFactor;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class Container {
                 .limit(4)
                 .collect(Collectors.toList());
 
-        return new Car(v8, wheels);
+        return new Car(v8, wheels, 2);
     }
 
     public static Vehicle getBicycle() {
